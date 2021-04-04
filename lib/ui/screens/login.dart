@@ -16,6 +16,7 @@ class LoginScreen extends StatelessWidget {
     Text _buildText() {
       return Text(
         'Recipes',
+        style: Theme.of(context).textTheme.headline1,
         textAlign:TextAlign.center,
       );
     }

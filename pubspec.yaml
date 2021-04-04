@@ -47,6 +47,16 @@ flutter:
   # New
   assets:
     - assets/background.jpg
+    - assets/g-logo.png
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Medium.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
