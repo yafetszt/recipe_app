@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
               _buildText(),
               SizedBox(height: 50.0),
               GoogleSignInButton(
-                onPressed: () => print("Button pressed."),
+                onPressed: () => Navigator.of(context).pushReplacementNamed('/'),
               ),
             ],
           ),
