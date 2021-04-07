@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_app/model/recipe.dart';
+import 'package:flutter_app/ui/widgets/recipe_card.dart';
 import 'package:flutter_app/utils/store.dart';
 import 'package:flutter_app/model/state.dart';
 import 'package:flutter_app/state_widget.dart';
@@ -22,7 +23,7 @@ class HomeScreenState extends State<HomeScreen> {
       const double _iconSize = 20.0;
 
       return DefaultTabController(
-        length: 4,
+        length: 3,
         child: Scaffold(
           appBar: PreferredSize(
             // We set Size equal to passed height (50.0) and infinite width:
@@ -33,7 +34,6 @@ class HomeScreenState extends State<HomeScreen> {
                 labelColor: Theme.of(context).indicatorColor,
                 tabs: [
                   Tab(icon: Icon(Icons.restaurant, size: _iconSize)),
-                  Tab(icon: Icon(Icons.local_drink, size: _iconSize)),
                   Tab(icon: Icon(Icons.favorite, size: _iconSize)),
                   Tab(icon: Icon(Icons.settings, size: _iconSize)),
                 ],
@@ -49,7 +49,7 @@ class HomeScreenState extends State<HomeScreen> {
     }
 
     TabBarView _buildTabsContent() {
-      Padding _buildRecipes(List<Recipe> recipesList) {
+      Padding _buildRecipes(List<Recipe> recipeList) {
         return Padding(
           // Padding before and after the list view:
           padding: const EdgeInsets.symmetric(vertical: 5.0),
@@ -57,10 +57,12 @@ class HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               Expanded(
                 child: ListView.builder(
-                  itemCount: recipesList.length,
+                  itemCount: recipeList.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(recipesList[index].name),
+                    return new RecipeCard(
+                      recipe: recipeList[index],
+                      inFavorites: userFavorites.contains(recipeList[index].id),
+                      onFavButtonPressed: _handleFavoritesListChanged,
                     );
                   },
                 ),
