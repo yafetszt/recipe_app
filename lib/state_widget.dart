@@ -23,8 +23,7 @@ class StateWidget extends StatefulWidget {
 
   class _StateWidgetState extends State<StateWidget> {
     StateModel state;
-    GoogleSignInAccount googleAccount;
-    final GoogleSignIn googleSignIn = new GoogleSignIn();
+
 
     @override
   void initState() {
@@ -38,26 +37,12 @@ class StateWidget extends StatefulWidget {
   }
 
   Future<Null> initUser() async {
-    googleAccount = await getSignedInAccount(googleSignIn);
 
-    if (googleAccount == null) {
-      setState(() {
-        state.isLoading = false;
-      });
-    } else {
-      await signInWithGoogle();
-    }
   }
 
   Future<Null> signInWithGoogle() async {
-      if (googleAccount == null) {
-        googleAccount = await googleSignIn.signIn();
+
       }
-      FirebaseUser firebaseUser = await signIntoFirebase(googleAccount);
-      setState(() {
-        state.isLoading = false;
-        state.user = firebaseUser;
-      });
   }
 
   @override
@@ -67,7 +52,7 @@ class StateWidget extends StatefulWidget {
       child: widget.child,
       );
   }
-}
+
 
   class _StateDataWidget extends InheritedWidget {
     final _StateWidgetState data;

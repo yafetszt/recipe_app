@@ -53,7 +53,7 @@ class HomeScreenState extends State<HomeScreen> {
     const double _iconSize = 20.0;
 
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: PreferredSize(
           // We set Size equal to passed height (50.0) and infinite width:
@@ -66,7 +66,6 @@ class HomeScreenState extends State<HomeScreen> {
               tabs: [
                 Tab(icon: Icon(Icons.restaurant, size: _iconSize)),
                 Tab(icon: Icon(Icons.favorite, size: _iconSize)),
-                Tab(icon: Icon(Icons.settings, size: _iconSize)),
               ],
             ),
           ),
@@ -84,7 +83,6 @@ class HomeScreenState extends State<HomeScreen> {
               _buildRecipes(recipes
                   .where((recipe) => userFavorites.contains(recipe.id))
                   .toList()),
-              Center(child: Icon(Icons.settings)),
             ],
           ),
         ),

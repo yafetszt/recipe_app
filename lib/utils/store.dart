@@ -6,7 +6,7 @@ List<Recipe> getRecipes() {
       id: '0',
       type: RecipeType.food,
       name: 'Oatmeal with Fruits',
-      duration: Duration(minutes: 15),
+
       ingredients: [
         '100g of oats',
         '100ml of milk',
@@ -26,7 +26,7 @@ List<Recipe> getRecipes() {
       id: '1',
       type: RecipeType.food,
       name: 'Pancakes with Maple Syrup',
-      duration: Duration(minutes: 20),
+
       ingredients: [
         '2 eggs',
         '100ml of milk',
@@ -47,7 +47,7 @@ List<Recipe> getRecipes() {
       id: '2',
       type: RecipeType.food,
       name: 'Strawberry Juice',
-      duration: Duration(minutes: 10),
+
       ingredients: [
         '100g of strawberries',
         '500ml of water',
@@ -66,7 +66,7 @@ List<Recipe> getRecipes() {
       id: '3',
       type: RecipeType.food,
       name: 'Blueberry Smoothie',
-      duration: Duration(minutes: 10),
+
       ingredients: [
         '100g of fresh blueberries',
         '200g of plain yoghurt',
