@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
             title: 'Recipes',
             theme: ThemeData(
-                primarySwatch: Colors.black,
+                primarySwatch: Colors.blue,
             ),
             debugShowCheckedModeBanner: false,
             home: Home(),
