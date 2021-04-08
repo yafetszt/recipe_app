@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/home.dart';
 
-import 'package:flutter_app/app.dart';
-//import 'package:flutter_app/state_widget.dart';
+void main() {
+    runApp(MyApp());
+}
 
-
-void main() => runApp(
-    new RecipeApp(),
-);
+class MyApp extends StatelessWidget {
+    // This widget is the root of your application.
+    @override
+    Widget build(BuildContext context) {
+        return MaterialApp(
+            title: 'Recipes',
+            theme: ThemeData(
+                primarySwatch: Colors.black,
+            ),
+            debugShowCheckedModeBanner: false,
+            home: Home(),
+        );
+    }
+}
