@@ -16,19 +16,22 @@ class _HomeState extends State<Home> {
   List<RecipeModel> recipes = <RecipeModel>[];
   TextEditingController textEditingController = new TextEditingController();
 
-  String appID = "20eec9d6";
-  String appKey = "b962b5b8337320fb4960b6ab63c8cd93";
-
-  getRecipes(String query) async {
+  getRecipes(String query) async{
     String url = "https://api.edamam.com/search?q=$query&app_id=20eec9d6&app_key=b962b5b8337320fb4960b6ab63c8cd93";
 
-    var response = await http.get(url);
+    var response = await http.get(Uri.parse(url));
     print("${response.toString()} this is response");
     Map<String, dynamic> jsonData = jsonDecode(response.body);
 
     jsonData["hits"].forEach((element) {
       print(element.toString());
+
+      RecipeModel recipeModel = new RecipeModel();
+      recipeModel = RecipeModel.fromMap(element["recipe"]);
+      recipes.add(recipeModel);
     });
+
+    print("${recipes.toString()}");
 
 
   }
@@ -119,8 +122,46 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          SizedBox(height: 30,),
+          SingleChildScrollView(
+            child: Container(
+              child: GridView(
+                shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200, mainAxisSpacing: 10.0
+                  ),
+                children: List.generate(recipes.length, (index) {
+                  return GridTile(
+                    child: Tile(
+                        title: recipes[index].label,
+                        desc: recipes[index].source,
+                        imgUrl: recipes[index].image,
+                        url: recipes[index].url
+                    ),
+                  );
+                }),
+              ),
+            ),
+          ),
         ],
       )
     );
+  }
+}
+
+class Tile extends StatefulWidget {
+  final String title, desc, imgUrl, url;
+  Tile({this.title, this.desc, this.imgUrl, this.url});
+
+  @override
+  _TileState createState() => _TileState();
+}
+
+class _TileState extends State<Tile> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
