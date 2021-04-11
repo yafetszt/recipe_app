@@ -1,6 +1,10 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_app/models/recipe_model.dart';
+import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   @override
@@ -8,6 +12,27 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  List<RecipeModel> recipes = <RecipeModel>[];
+  TextEditingController textEditingController = new TextEditingController();
+
+  String appID = "20eec9d6";
+  String appKey = "b962b5b8337320fb4960b6ab63c8cd93";
+
+  getRecipes(String query) async {
+    String url = "https://api.edamam.com/search?q=$query&app_id=20eec9d6&app_key=b962b5b8337320fb4960b6ab63c8cd93";
+
+    var response = await http.get(url);
+    print("${response.toString()} this is response");
+    Map<String, dynamic> jsonData = jsonDecode(response.body);
+
+    jsonData["hits"].forEach((element) {
+      print(element.toString());
+    });
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +60,10 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     Text("Recipes",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
+                        color: Colors.yellow,
+                        fontFamily: "Montserrat",
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                       ),
                     )
                   ],
@@ -47,6 +73,7 @@ class _HomeState extends State<Home> {
                 ),
                 Text("Welcome",
                   style: TextStyle(
+                    fontFamily: "Montserrat",
                     fontSize: 20,
                     color: Colors.white
                   ),
@@ -57,20 +84,34 @@ class _HomeState extends State<Home> {
                     children: <Widget>[
                       Expanded(
                         child: TextField(
+                          controller: textEditingController,
                           decoration: InputDecoration(
                             hintText: "Enter ingredients",
                             hintStyle: TextStyle(
-                              fontSize: 18
+                              fontFamily: "Montserrat",
+                              fontSize: 18,
+                              color: Colors.white.withOpacity(0.4)
                             )
                           ),
                           style: TextStyle(
-                            fontSize: 18
+                            fontFamily: "Montserrat",
+                            fontSize: 18,
+                            color: Colors.white
                           ),
                         ),
                       ),
                       SizedBox(width: 16,),
-                      Container(
-                        child: Icon(Icons.search),
+                      InkWell(
+                        onTap: () {
+                          if (textEditingController.text.isNotEmpty){
+                            print("do it");
+                          } else {
+                            print("don't do it");
+                          }
+                        },
+                        child: Container(
+                          child: Icon(Icons.search, color: Colors.white,),
+                        ),
                       )
                     ],
                   ),
