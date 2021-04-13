@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'package:flutter_app/models/hits.dart';
 import 'package:http/http.dart' as http;
 
-class Recipie {
+class Recipe {
   List<Hits> hits = [];
 
-  Future<void> getReceipe() async {
+  Future<void> getRecipe() async {
     String url =
-        "https://api.edamam.com/search?q=banana&app_id=0f21d949&app_key=c8daa8a855225d925157f8c7e093a014";
+        "https://api.edamam.com/search?q=banana&app_id=20eec9d6&app_key=b962b5b8337320fb4960b6ab63c8cd93";
     var response = await http.get(url);
 
     var jsonData = jsonDecode(response.body);
@@ -15,7 +15,6 @@ class Recipie {
       Hits hits = Hits(
         recipeModel: element['recipe'],
       );
-      // hits.recipeModel = add(Hits.fromMap(hits.recipeModel));
     });
   }
 }
