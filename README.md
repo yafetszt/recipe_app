@@ -12,7 +12,10 @@ For this application, I used Android Studio 4.1.0.0 running on Windows 10. For t
 
 ## References
 
-Flutter Documentation. flutter.dev/docs. 
+Flutter Documentation. flutter.dev/docs.
+
 “Michael Krol.” Medium, medium.com/@michael.krol. 
+
 Tiwari, Sanskar. “Build a Recipe App with Flutter.” FlutterNerd, 12 Jan. 2021, flutternerd.com/build-a-recipe-app-with-flutter/. 
+
 Krasnov, Michael. “Sending HTTP Requests in Dart (Flutter).” Everyday.codes, 20 Dec. 2019, everyday.codes/tutorials/sending-http-requests-in-dart/.
