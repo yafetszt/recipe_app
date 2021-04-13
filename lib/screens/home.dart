@@ -33,14 +33,7 @@ class _HomeState extends State<Home> {
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [
-                        const Color(0xff213A50),
-                        const Color(0xff071930)
-                      ],
-                    begin: FractionalOffset.topRight,
-                    end: FractionalOffset.bottomLeft,
-                  )
+                  color: Colors.white10,
               ),
             ),
             SingleChildScrollView(
@@ -50,7 +43,7 @@ class _HomeState extends State<Home> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     SizedBox(
-                      height: 40,
+                      height: 60,
                     ),
                     Row(
                       mainAxisAlignment: kIsWeb
@@ -61,23 +54,23 @@ class _HomeState extends State<Home> {
                           style: TextStyle(
                             color: Colors.orangeAccent,
                             fontFamily: "Montserrat",
-                            fontSize: 30,
+                            fontSize: 32,
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                           ),
                         ),
                         Text("Recipes",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.lightBlue,
                             fontFamily: "Montserrat",
-                            fontSize: 30,
+                            fontSize: 32,
                             //fontWeight: FontWeight.bold,
                           ),
                         )
                       ],
                     ),
                     SizedBox(
-                      height: 60,
+                      height: 40,
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width,
@@ -87,17 +80,17 @@ class _HomeState extends State<Home> {
                             child: TextField(
                               controller: textEditingController,
                               decoration: InputDecoration(
-                                  hintText: "Search recipes",
+                                  hintText: "Search recipes...",
                                   hintStyle: TextStyle(
                                       fontFamily: "Montserrat",
                                       fontSize: 18,
-                                      color: Colors.white.withOpacity(0.4)
+                                      color: Colors.blueGrey.withOpacity(0.4)
                                   ),
                               ),
                               style: TextStyle(
                                   fontFamily: "Montserrat",
                                   fontSize: 18,
-                                  color: Colors.white
+                                  color: Colors.black,
                               ),
                             ),
                           ),
@@ -130,15 +123,9 @@ class _HomeState extends State<Home> {
                             },
                             child: Container(
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Colors.white,
-                                  gradient: LinearGradient(
-                                      colors: [
-                                        const Color(0xffA2834D),
-                                        const Color(0xffBC9A5F)
-                                      ],
-                                      begin: FractionalOffset.topRight,
-                                      end: FractionalOffset.bottomLeft)),
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.deepPurple,
+                              ),
                               padding: EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -250,7 +237,7 @@ class _TileState extends State<Tile> {
                         Text(
                           widget.title,
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 13,
                             color: Colors.black87,
                             fontFamily: 'MontserratBold'),
                         ),
@@ -259,7 +246,10 @@ class _TileState extends State<Tile> {
                           style: TextStyle(
                             fontSize: 10,
                             color: Colors.black87,
-                            fontFamily: 'MontserratItalic'),
+                            fontFamily: 'Montserrat',
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
+                          ),
                         )
                       ],
                     )
