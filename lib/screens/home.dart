@@ -50,19 +50,28 @@ class _HomeState extends State<Home> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     SizedBox(
-                      height: 20,
+                      height: 40,
                     ),
                     Row(
                       mainAxisAlignment: kIsWeb
                           ? MainAxisAlignment.start
                           : MainAxisAlignment.center,
                       children: <Widget>[
-                        Text("Recipes",
+                        Text("Chungus",
                           style: TextStyle(
                             color: Colors.orangeAccent,
                             fontFamily: "Montserrat",
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        Text("Recipes",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Montserrat",
+                            fontSize: 30,
+                            //fontWeight: FontWeight.bold,
                           ),
                         )
                       ],
